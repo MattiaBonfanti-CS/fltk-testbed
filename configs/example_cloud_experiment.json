@@ -7,7 +7,7 @@
          "prefix": "client",
          "tensorboard_active": false
       },
-      "image": "gcr.io/test-bed-fltk/fltk:latest",
+      "image": "gcr.io/test-bed-fltk-group16-mb/fltk:latest",
       "namespace": "test"
    },
    "execution_config": {
