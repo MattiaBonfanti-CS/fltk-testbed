@@ -5,6 +5,8 @@ from datetime import datetime
 import pandas as pd
 from pytz import utc
 
+from project.connections import mongo
+
 directory = "../logging/cloud_project_experiment"
 filename = "federator.csv"
 experiment_id = 1
@@ -43,4 +45,5 @@ for directory_name in os.listdir(directory):
     experiments_data.append(data_to_store)
     experiment_id += 1
 
-print(experiments_data)
+# Add to database
+mongo.insert_many(collection="doe_data", data=experiments_data)
