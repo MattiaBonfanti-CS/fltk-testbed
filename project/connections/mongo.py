@@ -113,6 +113,22 @@ class Mongo:
             result = self.db[collection].insert_many(data)
         return result
 
+    def replace_one(self, collection, data, query):
+        """
+        Update or insert data.
+
+        :param collection: The collection to retrieve the data from.
+        :param data: The data to update to the database.
+        :param query: The filtering query.
+
+        :return: The updated and added elements to the database.
+        """
+        result = []
+        if len(data) > 0:
+            result = self.db[collection].replace_one(replacement=data, filter=query, upsert=True)
+
+        return result
+
     def delete_one(self, collection, query):
         """
         Delete an element to a collection.

@@ -10,7 +10,6 @@ from project.connections import mongo
 directory = "../logging/cloud_project_experiment"
 filename = "federator.csv"
 experiment_id = 1
-experiments_data = []
 for directory_name in os.listdir(directory):
     # Load experiment parameters
     with open(f"configs/project_arrival_config_comb_{experiment_id}.json") as f:
@@ -22,7 +21,12 @@ for directory_name in os.listdir(directory):
 
     data_to_store = {
         "k_clients": experiment_json["trainTasks"][0]["jobClassParameters"][0]["learningParameters"]["clientsPerRound"],
-        "learning_rate": experiment_json["trainTasks"][0]["jobClassParameters"][0]["hyperParameters"]["configurations"]["Worker"]["optimizerConfig"]["learningRate"],
+        "client_cores": experiment_json["trainTasks"][0]["jobClassParameters"][0]["systemParameters"]["configurations"]
+        ["Worker"]["cores"],
+        "client_memory": experiment_json["trainTasks"][0]["jobClassParameters"][0]["systemParameters"]["configurations"]
+        ["Worker"]["memory"],
+        "learning_rate": experiment_json["trainTasks"][0]["jobClassParameters"][0]["hyperParameters"]["configurations"]
+        ["Worker"]["optimizerConfig"]["learningRate"],
         "epochs": experiment_json["trainTasks"][0]["jobClassParameters"][0]["learningParameters"]["epochsPerRound"],
         "repetitions": [],
         "created": datetime.now(tz=utc)
@@ -42,8 +46,16 @@ for directory_name in os.listdir(directory):
             }
         )
 
-    experiments_data.append(data_to_store)
     experiment_id += 1
 
-# Add to database
-mongo.insert_many(collection="doe_data", data=experiments_data)
+    # Add to database
+    mongo.replace_one(
+        collection="doe_data",
+        data=data_to_store,
+        query={
+            "learning_rate": data_to_store["learning_rate"],
+            "epochs": data_to_store["epochs"]
+        }
+    )
+
+print("Parser job done!")
