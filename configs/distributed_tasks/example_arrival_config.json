@@ -33,7 +33,7 @@
           },
           "hyperParameters": {
             "default": {
-              "totalEpochs": 100,
+              "totalEpochs": 2,
               "batchSize": 128,
               "testBatchSize": 128,
               "learningRateDecay": 0.0002,
@@ -57,7 +57,17 @@
             }
           },
           "learningParameters": {
-            "cuda": false
+            "rounds": 3,
+            "epochsPerRound": 2,
+            "cuda": false,
+            "clientsPerRound": 1,
+            "dataSampler": {
+              "type": "uniform",
+              "qValue": 0.07,
+              "seed": 42,
+              "shuffle": true
+            },
+            "aggregation": "Sum"
           }
         }
       ]
