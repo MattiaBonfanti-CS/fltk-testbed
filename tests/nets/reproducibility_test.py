@@ -5,7 +5,7 @@ import torch
 import unittest
 from parameterized import parameterized
 from fltk.nets import Cifar10CNN, Cifar10ResNet, ResNet18, ResNet34, ResNet50, ResNet101, ResNet152, Cifar100ResNet, \
-    Cifar100VGG, FashionMNISTCNN, FashionMNISTResNet, SimpleMnist, SimpleNet
+    Cifar100VGG, FashionMNISTCNN, FashionMNISTResNet, SimpleMnist, SimpleNet, LeNet5
 from fltk.nets.util.reproducability import init_reproducibility
 
 models = [
@@ -21,7 +21,8 @@ models = [
     (FashionMNISTCNN),
     (FashionMNISTResNet),
     (SimpleMnist),
-    (SimpleNet)
+    (SimpleNet),
+    (LeNet5)
 ]
 
 class TestReproducibleNet(unittest.TestCase):
