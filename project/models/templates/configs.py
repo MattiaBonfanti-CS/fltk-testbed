@@ -1,9 +1,9 @@
-{
+CONFIGS_TEMPLATE = {
   "trainTasks": [
     {
       "type": "distributed",
       "lambda": 1.5,
-      "preemptJobs": false,
+      "preemptJobs": False,
       "jobClassParameters": [
         {
           "classProbability": 0.1,
@@ -33,13 +33,13 @@
           },
           "hyperParameters": {
             "default": {
-              "totalEpochs": 50,
+              "totalEpochs": 1,
               "batchSize": 128,
               "testBatchSize": 128,
               "learningRateDecay": 0.0002,
               "optimizerConfig": {
                 "type": "SGD",
-                "learningRate": 0.01,
+                "learningRate": 0.1,
                 "momentum": 0.1
               },
               "schedulerConfig": {
@@ -49,12 +49,12 @@
               }
             },
             "configurations": {
-              "Master": null,
-              "Worker": null
+              "Master": None,
+              "Worker": None
             }
           },
           "learningParameters": {
-            "cuda": false
+            "cuda": False
           }
         }
       ]

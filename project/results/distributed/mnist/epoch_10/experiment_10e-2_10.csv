@@ -1,7 +1,0 @@
-metric,value,step,wall_time
-training loss per epoch,0.2803949251770973,1.0,2022-10-19 09:49:00.0
-accuracy per epoch,85.92,1.0,2022-10-19 10:21:00.0
-training loss per epoch,0.2803949251770973,1.0,2022-10-19 09:49:00.0
-accuracy per epoch,86.16,1.0,2022-10-19 10:21:00.0
-training loss per epoch,0.2803949251770973,1.0,2022-10-19 09:49:00.0
-accuracy per epoch,86.32,1.0,2022-10-19 10:21:00.0
