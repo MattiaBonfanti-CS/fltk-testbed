@@ -10,7 +10,7 @@ warnings.filterwarnings("ignore")
 
 
 # Set constants
-CONFIDENCE_INTERVAL = 0.05
+CONFIDENCE_LEVEL = 0.05
 
 # Load data from the DB
 experiments_results = mongo.find(collection="doe_data", query={})
@@ -53,8 +53,10 @@ print(anova_result.to_string())
 # Save to DB
 anova_dict = anova_result.to_dict()
 anova_dict["rejected"] = {}
+
 for parameter, p_value in anova_dict["PR(>F)"].items():
-    anova_dict["rejected"][parameter] = p_value > CONFIDENCE_INTERVAL
+    if parameter != "Residual":
+        anova_dict["rejected"][parameter] = p_value > CONFIDENCE_LEVEL
 
 mongo.insert_one(collection="anova_data", data=anova_dict)
 

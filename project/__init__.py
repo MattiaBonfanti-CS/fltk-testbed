@@ -13,4 +13,4 @@ learning_rates = {
 }
 epochs = [1, 10, 25]
 datasets = {"mnist": "mnist", "fashionmnist": "fashion-mnist"}
-networks = ["FashionMNISTCNN", "FashionMNISTResNet"]
+networks = ["FashionMNISTCNN", "MNISTCNN"]
