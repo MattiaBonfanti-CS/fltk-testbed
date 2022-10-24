@@ -3,7 +3,9 @@ import warnings
 import pandas as pd
 import statsmodels.api as sm
 
+from project import learning_rates, epochs
 from project.connections import mongo
+from project.utils import Utils
 from statsmodels.formula.api import ols
 
 warnings.filterwarnings("ignore")
@@ -11,13 +13,16 @@ warnings.filterwarnings("ignore")
 
 # Set constants
 CONFIDENCE_LEVEL = 0.05
+LEARNING_RATE_RANGE = (min(learning_rates.values()), max(learning_rates.values()))
+EPOCHS_RANGE = (min(epochs), max(epochs))
 
 # Load data from the DB
 experiments_results = mongo.find(collection="doe_data", query={})
-df_list = []
+df_full_factorial_list = []
+df_2k_factorial_list = []
 for result in experiments_results:
     for accuracy in result["accuracy"]:
-        df_list.append(
+        df_full_factorial_list.append(
             {
                 "dataset": result["dataset"],
                 "network": result["network"],
@@ -27,37 +32,76 @@ for result in experiments_results:
             }
         )
 
-# Create data frame
-df = pd.DataFrame(data=df_list)
-print(df)
+        # Only use max and min values for 2-k factorial analysis
+        if result["learning_rate"] in LEARNING_RATE_RANGE and result["epochs"] in EPOCHS_RANGE:
+            df_2k_factorial_list.append(
+                {
+                    "dataset": result["dataset"],
+                    "network": result["network"],
+                    "epochs": result["epochs"],
+                    "learning_rate": result["learning_rate"],
+                    "accuracy": accuracy
+                }
+            )
+
+# Create data frame for full factorial analysis
+df_full_factorial = pd.DataFrame(data=df_full_factorial_list)
+print(df_full_factorial)
+print()
+
+# Create data frame for 2-k factorial analysis
+df_2k_factorial = pd.DataFrame(data=df_2k_factorial_list)
+print(df_2k_factorial)
 print()
 
 # ANOVA Analysis
-model = ols("accuracy ~ "
-            "C(dataset) + C(network) + C(epochs) + C(learning_rate) + "
-            "C(dataset):C(network) + C(dataset):C(epochs) + C(dataset):C(learning_rate) + "
-            "C(network):C(epochs) + C(network):C(learning_rate) + "
-            "C(epochs):C(learning_rate) + "
-            "C(dataset):C(network):C(epochs) + C(dataset):C(network):C(learning_rate) + "
-            "C(dataset):C(epochs):C(learning_rate) + "
-            "C(network):C(epochs):C(learning_rate) + "
-            "C(dataset):C(network):C(epochs):C(learning_rate)", data=df).fit()
+anova_factors = "accuracy ~ " \
+                "C(dataset) + C(network) + C(epochs) + C(learning_rate) + " \
+                "C(dataset):C(network) + C(dataset):C(epochs) + C(dataset):C(learning_rate) + " \
+                "C(network):C(epochs) + C(network):C(learning_rate) + " \
+                "C(epochs):C(learning_rate) + " \
+                "C(dataset):C(network):C(epochs) + C(dataset):C(network):C(learning_rate) + " \
+                "C(dataset):C(epochs):C(learning_rate) + " \
+                "C(network):C(epochs):C(learning_rate) + " \
+                "C(dataset):C(network):C(epochs):C(learning_rate)"
 
-# model = ols("accuracy ~ "
-#             "C(epochs) + C(learning_rate) + "
-#             "C(epochs):C(learning_rate)", data=df).fit()
+# anova_factors = "accuracy ~  " \
+#                 "C(epochs) + " \
+#                 "C(learning_rate) +  " \
+#                 "C(epochs):C(learning_rate)"
 
-anova_result = sm.stats.anova_lm(model, typ=2)
-print(anova_result.to_string())
+# Full factorial analysis
+print("-------------- FULL FACTORIAL ANOVA ----------------")
+
+anova_full_factorial_model = ols(anova_factors, data=df_full_factorial).fit()
+
+anova_full_factorial_result = sm.stats.anova_lm(anova_full_factorial_model, typ=2)
+print(anova_full_factorial_result.to_string())
+print()
 
 # Save to DB
-anova_dict = anova_result.to_dict()
-anova_dict["rejected"] = {}
+Utils.store_anova_results(
+    anova_results=anova_full_factorial_result,
+    anova_type="full factorial",
+    confidence_level=CONFIDENCE_LEVEL,
+    mongo=mongo
+)
 
-for parameter, p_value in anova_dict["PR(>F)"].items():
-    if parameter != "Residual":
-        anova_dict["rejected"][parameter] = p_value > CONFIDENCE_LEVEL
+# Full factorial analysis
+print("-------------- 2-K FACTORIAL ANOVA ----------------")
 
-mongo.insert_one(collection="anova_data", data=anova_dict)
+anova_2k_factorial_model = ols(anova_factors, data=df_2k_factorial).fit()
+
+anova_2k_factorial_result = sm.stats.anova_lm(anova_2k_factorial_model, typ=2)
+print(anova_2k_factorial_result.to_string())
+print()
+
+# Save to DB
+Utils.store_anova_results(
+    anova_results=anova_2k_factorial_result,
+    anova_type="2-k factorial",
+    confidence_level=CONFIDENCE_LEVEL,
+    mongo=mongo
+)
 
 print("ANOVA Analysis completed")

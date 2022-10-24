@@ -26,3 +26,23 @@ class Utils:
             print("KeyError in the {0} file, missing key {1}: {2}".format(conn_cfg_file, key, error))
 
         return connections_info
+
+    @staticmethod
+    def store_anova_results(anova_results, anova_type, confidence_level, mongo):
+        """
+        Store the ANOVA analysis results to the mongo database.
+
+        :param anova_results: The ANOVA results.
+        :param anova_type: The ANOVA analysis type.
+        :param confidence_level: The confidence level.
+        :param mongo: The DB connection.
+        """
+        anova_dict = anova_results.to_dict()
+        anova_dict["type"] = anova_type
+        anova_dict["rejected"] = {}
+
+        for parameter, p_value in anova_dict["PR(>F)"].items():
+            if parameter != "Residual":
+                anova_dict["rejected"][parameter] = p_value > confidence_level
+
+        mongo.insert_one(collection="anova_data", data=anova_dict)
