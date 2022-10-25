@@ -70,10 +70,22 @@ anova_factors = "accuracy ~ " \
 #                 "C(learning_rate) +  " \
 #                 "C(epochs):C(learning_rate)"
 
+# anova_factors = "accuracy ~ " \
+#                 "dataset + network + epochs + learning_rate + " \
+#                 "dataset:network + dataset:epochs + dataset:learning_rate + " \
+#                 "network:epochs + network:learning_rate + " \
+#                 "epochs:learning_rate + " \
+#                 "dataset:network:epochs + dataset:network:learning_rate + " \
+#                 "dataset:epochs:learning_rate + " \
+#                 "network:epochs:learning_rate + " \
+#                 "dataset:network:epochs:learning_rate"
+
 # Full factorial analysis
 print("-------------- FULL FACTORIAL ANOVA ----------------")
 
 anova_full_factorial_model = ols(anova_factors, data=df_full_factorial).fit()
+print(anova_full_factorial_model.summary())
+print()
 
 anova_full_factorial_result = sm.stats.anova_lm(anova_full_factorial_model, typ=2)
 print(anova_full_factorial_result.to_string())
@@ -91,6 +103,8 @@ Utils.store_anova_results(
 print("-------------- 2-K FACTORIAL ANOVA ----------------")
 
 anova_2k_factorial_model = ols(anova_factors, data=df_2k_factorial).fit()
+print(anova_2k_factorial_model.summary())
+print()
 
 anova_2k_factorial_result = sm.stats.anova_lm(anova_2k_factorial_model, typ=2)
 print(anova_2k_factorial_result.to_string())
