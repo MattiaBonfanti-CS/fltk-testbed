@@ -9,15 +9,15 @@ def load_experiments_data(mongo, full_factorial=True):
     :param full_factorial: The full_factorial flag.
     :return: The list of data from the DB.
     """
-    LEARNING_RATE_RANGE = (min(learning_rates.values()), max(learning_rates.values()))
-    EPOCHS_RANGE = (min(epochs), max(epochs))
+    learning_rate_range = (min(learning_rates.values()), max(learning_rates.values()))
+    epochs_range = (min(epochs), max(epochs))
 
     experiments_results = mongo.find(collection="doe_data", query={})
     df_list = []
     for result in experiments_results:
         for accuracy in result["accuracy"]:
             # Only use max and min values for 2-k factorial analysis
-            if full_factorial or (result["learning_rate"] in LEARNING_RATE_RANGE and result["epochs"] in EPOCHS_RANGE):
+            if full_factorial or (result["learning_rate"] in learning_rate_range and result["epochs"] in epochs_range):
                 df_list.append(
                     {
                         "dataset": result["dataset"],
