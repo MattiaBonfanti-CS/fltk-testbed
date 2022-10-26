@@ -41,17 +41,14 @@ def load_estimations_data(mongo):
     experiments_results = mongo.find(collection="queue_data", query={})
     df_list = []
     for result in experiments_results:
-        if result["nodes"] != 1:
-            continue
-
         for accuracy in result["accuracy"]:
             df_list.append(
                 {
                     "nodes": result["nodes"],
                     "cores": 1 if result["cores"] == "500m" else 2,
                     "memory": 1 if result["memory"] == "1Gi" else 2,
-                    "dataset": 1 if result["memory"] == "mnist" else -1,
-                    "network": 1 if result["memory"] == "FashionMNISTCNN" else -1,
+                    "dataset": 1 if result["dataset"] == "mnist" else -1,
+                    "network": 1 if result["network"] == "FashionMNISTCNN" else -1,
                     "epochs": result["epochs"],
                     "learning_rate": result["learning_rate"],
                     "accuracy": accuracy,
