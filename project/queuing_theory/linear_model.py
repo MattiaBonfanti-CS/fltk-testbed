@@ -1,52 +1,33 @@
 import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import train_test_split
 
 from project.connections import mongo
-from project.queuing_theory import N
-from project.queuing_theory.utils import load_experiments_data
+from project.queuing_theory.utils import load_estimations_data
 
-# Load data from the DB
-df_m_m_k_list = load_experiments_data(mongo=mongo)
 
-# M/M/1 and M/M/1-fast queue estimations
-df_m_m_1_list = []
-df_m_m_1_fast_list = []
-for q_values in df_m_m_k_list:
-    k = q_values["nodes"]
-    e_t = k * q_values["response_time"]
+# Load estimations data
+df_queues_list = load_estimations_data(mongo=mongo)
 
-    # M/M/1
-    lambda_arrival_rate = N / e_t
-    service_rate = (1.0 / e_t) + lambda_arrival_rate
-    rho_utilization = lambda_arrival_rate / service_rate
-    response_time = 1.0 / (service_rate - lambda_arrival_rate)
-
-    df_m_m_1_dict = {
-        **q_values,
-        "lambda_arrival_rate": lambda_arrival_rate,
-        "service_rate": service_rate,
-        "rho_utilization": rho_utilization,
-        "response_time": response_time,
-        "n_jobs": lambda_arrival_rate * (1.0 / (service_rate - lambda_arrival_rate))
-    }
-    df_m_m_1_dict["nodes"] = 1
-    df_m_m_1_list.append(df_m_m_1_dict)
-
-    # M/M/1-fast
-    df_m_m_1_fast_dict = {
-        **q_values,
-        "lambda_arrival_rate": lambda_arrival_rate,
-        "service_rate": 2.0 * service_rate,
-        "rho_utilization": rho_utilization / 2.0,
-        "response_time": 1.0 / (2.0 * service_rate - lambda_arrival_rate),
-        "n_jobs": lambda_arrival_rate * (1.0 / (2.0 * service_rate - lambda_arrival_rate))
-    }
-    df_m_m_1_fast_dict["nodes"] = 1
-    df_m_m_1_fast_dict["memory"] = "2Gi"
-    df_m_m_1_fast_dict["cores"] = "1000m"
-
-    df_m_m_1_fast_list.append(df_m_m_1_fast_dict)
-
-df_queues_list = df_m_m_1_list + df_m_m_1_fast_list + df_m_m_k_list
 df_queues = pd.DataFrame(data=df_queues_list)
 print(df_queues)
 print()
+
+# Prepare data for linear regression to estimate response time
+y = df_queues["duration_s"]
+X = df_queues[["nodes", "cores", "memory", "dataset", "network", "epochs", "learning_rate", "accuracy"]]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+linear_regression = LinearRegression()
+linear_regression.fit(X_train, y_train)
+
+y_pred = linear_regression.predict(X_test)
+
+mse_accuracy = mean_squared_error(y_test, y_pred)
+r2_accuracy = r2_score(y_test, y_pred)
+
+print(f"Response time E[T] predictions: MSE = {mse_accuracy}, R2: {r2_accuracy}")

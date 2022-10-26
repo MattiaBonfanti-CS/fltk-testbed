@@ -35,7 +35,7 @@ X_train, X_test, y_train_accuracy, y_test_accuracy = train_test_split(
 anova_linear_model = ols(ANOVA_FACTORS, data=X_train).fit()
 y_pred_accuracy_anova = anova_linear_model.predict(X_test)
 
-mse_accuracy = mean_squared_error(y_pred_accuracy_anova, y_test_accuracy)
-r2_accuracy = r2_score(y_pred_accuracy_anova, y_test_accuracy)
+mse_accuracy = mean_squared_error(y_test_accuracy, y_pred_accuracy_anova)
+r2_accuracy = r2_score(y_test_accuracy, y_pred_accuracy_anova)
 
 print(f"Accuracy predictions: MSE = {mse_accuracy}, R2: {r2_accuracy}")
