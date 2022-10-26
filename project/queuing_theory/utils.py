@@ -52,7 +52,7 @@ def load_estimations_data(mongo):
                     "epochs": result["epochs"],
                     "learning_rate": result["learning_rate"],
                     "accuracy": accuracy,
-                    "duration_s": result["duration_s"]
+                    "response_time": result["response_time"]
                 }
             )
 
@@ -68,8 +68,24 @@ def estimate_m_m_k_fast_queue(m_m_k_data):
     """
     df_m_m_k_fast_list = []
     for q_values in m_m_k_data:
+        # M/M/k values
+        k = q_values["nodes"]
+        e_s = q_values["duration_s"]
+
+        service_rate = 1.0 / e_s
+        N_q = 1
+        rho_utilization = (N - N_q) / k
+        lambda_arrival_rate = rho_utilization * service_rate
+        response_time = (1.0 / lambda_arrival_rate) + e_s
+
+        q_values["response_time"] = response_time
+
+        # M/M/k fast values
+        response_time_fast = (1.0 / (2.0 * lambda_arrival_rate)) + e_s / 2.0
+
         df_m_m_k_fast_dict = deepcopy(q_values)
-        df_m_m_k_fast_dict["duration_s"] = round(q_values["duration_s"] / 2.0, 2)
+        df_m_m_k_fast_dict["duration_s"] = round(e_s / 2.0, 2)
+        df_m_m_k_fast_dict["response_time"] = round(response_time_fast, 2)
         df_m_m_k_fast_dict["memory"] = "2Gi"
         df_m_m_k_fast_dict["cores"] = "1000m"
         df_m_m_k_fast_list.append(df_m_m_k_fast_dict)
@@ -89,15 +105,17 @@ def estimate_m_m_1_m_m_1_fast_queues(m_m_k_data):
 
     for q_values in m_m_k_data:
         k = q_values["nodes"]
-        e_t = k * q_values["duration_s"]
+        e_s = k * q_values["duration_s"]
 
         # M/M/1
-        lambda_arrival_rate = N / e_t
-        service_rate = (1.0 / e_t) + lambda_arrival_rate
+        service_rate = 1.0 / e_s
+        rho_utilization = N / (1.0 + N)
+        lambda_arrival_rate = rho_utilization * service_rate
         response_time = 1.0 / (service_rate - lambda_arrival_rate)
 
         df_m_m_1_dict = deepcopy(q_values)
-        df_m_m_1_dict["duration_s"] = round(response_time, 2)
+        df_m_m_1_dict["duration_s"] = e_s
+        df_m_m_1_dict["response_time"] = round(response_time, 2)
         df_m_m_1_dict["nodes"] = 1
         df_m_m_1_list.append(df_m_m_1_dict)
 
@@ -105,7 +123,8 @@ def estimate_m_m_1_m_m_1_fast_queues(m_m_k_data):
         response_time_fast = 1.0 / (2.0 * service_rate - lambda_arrival_rate)
 
         df_m_m_1_fast_dict = deepcopy(q_values)
-        df_m_m_1_fast_dict["duration_s"] = round(response_time_fast, 2)
+        df_m_m_1_fast_dict["duration_s"] = round(e_s / 2.0, 2)
+        df_m_m_1_fast_dict["response_time"] = round(response_time_fast, 2)
         df_m_m_1_fast_dict["nodes"] = 1
         df_m_m_1_fast_dict["memory"] = "2Gi"
         df_m_m_1_fast_dict["cores"] = "1000m"

@@ -19,7 +19,6 @@ df_m_m_1_list, df_m_m_1_fast_list = estimate_m_m_1_m_m_1_fast_queues(df_m_m_k_li
 df_queues_list = df_m_m_1_list + df_m_m_1_fast_list + df_m_m_k_list + df_m_m_k_fast_list
 
 # Store to DB
-# df_list = []
 for result in df_queues_list:
     # Add to database
     result["created"] = datetime.now(tz=utc)

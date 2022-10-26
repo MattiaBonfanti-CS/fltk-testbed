@@ -15,7 +15,7 @@ print(df_queues)
 print()
 
 # Prepare data for linear regression to estimate response time
-y = df_queues["duration_s"]
+y = df_queues["response_time"]
 X = df_queues[["nodes", "cores", "memory", "dataset", "network", "epochs", "learning_rate", "accuracy"]]
 
 X_train, X_test, y_train, y_test = train_test_split(
