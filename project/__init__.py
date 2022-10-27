@@ -2,6 +2,7 @@ DATA_PARALLELISM = 4
 EXPERIMENT_TYPE = "distributed"
 CONFIGS_BASE_PATH = f"./configs/{EXPERIMENT_TYPE}/"
 RESULTS_BASE_PATH = f"./results/{EXPERIMENT_TYPE}/"
+RESULTS_QUEUE_BASE_PATH = f"../results/queue/"
 
 learning_rates = {
     "10e-1": 0.1,
@@ -14,3 +15,9 @@ learning_rates = {
 epochs = [1, 10, 25]
 datasets = {"mnist": "mnist", "fashionmnist": "fashion-mnist"}
 networks = ["FashionMNISTCNN", "MNISTCNN"]
+queues = {
+    "M/M/1": "m_m_1",
+    "M/M/1-fast": "m_m_1_fast",
+    "M/M/k": "m_m_k",
+    "M/M/k-fast": "m_m_k_fast"
+}

@@ -10,3 +10,13 @@ class Results(BaseModel):
     end_time: str
     loss: float
     accuracy: List[float]
+
+
+class ResultsQueue(BaseModel):
+    """
+    Experiments queue setup class.
+    """
+    start_time: List[str]
+    end_time: List[str]
+    epochs: List[int]
+    learning_rate: float

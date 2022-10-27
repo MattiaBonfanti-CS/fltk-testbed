@@ -131,3 +131,41 @@ def estimate_m_m_1_m_m_1_fast_queues(m_m_k_data):
         df_m_m_1_fast_list.append(df_m_m_1_fast_dict)
 
     return df_m_m_1_list, df_m_m_1_fast_list
+
+
+def compare_queues(m_m_1, m_m_1_fast, m_m_k, m_m_k_fast):
+    """
+    Compare queues.
+    """
+    queues_e_t_stats = {
+        "M/M/1": {
+            "mean": m_m_1["response_time"].mean(),
+            "std": m_m_1["response_time"].std()
+        },
+        "M/M/1-fast": {
+            "mean": m_m_1_fast["response_time"].mean(),
+            "std": m_m_1_fast["response_time"].std()
+        },
+        "M/M/k": {
+            "mean": m_m_k["response_time"].mean(),
+            "std": m_m_k["response_time"].std()
+        },
+        "M/M/k-fast": {
+            "mean": m_m_k_fast["response_time"].mean(),
+            "std": m_m_k_fast["response_time"].std()
+        }
+    }
+
+    comparisons = {}
+    for setup_a, values_a in queues_e_t_stats.items():
+        for setup_b, values_b in queues_e_t_stats.items():
+            if setup_a == setup_b or \
+                    f"{setup_a}_vs_{setup_b}" in comparisons.keys() or \
+                    f"{setup_b}_vs_{setup_a}" in comparisons.keys():
+                continue
+
+            comparisons[f"{setup_a}_vs_{setup_b}"] = {
+                "ratio": round(values_a["mean"] / values_b["mean"], 2)
+            }
+
+    return comparisons
