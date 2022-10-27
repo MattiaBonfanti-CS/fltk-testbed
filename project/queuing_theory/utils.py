@@ -72,9 +72,9 @@ def estimate_m_m_k_fast_queue(m_m_k_data):
         k = q_values["nodes"]
         e_s = q_values["duration_s"]
 
-        service_rate = 1.0 / e_s
+        service_rate = k * (1.0 / e_s)
         N_q = 1
-        rho_utilization = (N - N_q) / k
+        rho_utilization = (N - N_q) / N
         lambda_arrival_rate = rho_utilization * service_rate
         response_time = (1.0 / lambda_arrival_rate) + e_s
 
