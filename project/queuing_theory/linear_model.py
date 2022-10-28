@@ -47,12 +47,12 @@ plt.savefig("../plots/queue_linear_sns.png")
 f, (ax1, ax2) = plt.subplots(2, figsize=(15, 10))
 
 ax1.scatter(X_test.nodes, y_test, label="True labels")
-ax1.scatter(X_test.cores, y_pred, label="Predicted values")
+ax1.scatter(X_test.nodes, y_pred, label="Predicted values")
 
-ax1.set_xlabel("NUmber of nodes")
+ax1.set_xlabel("Number of nodes")
 ax1.set_ylabel("Response time")
 
-ax2.scatter(X_test.nodes, y_test, label="True labels")
+ax2.scatter(X_test.cores, y_test, label="True labels")
 ax2.scatter(X_test.cores, y_pred, label="Predicted values")
 
 ax2.set_xlabel("Service rate factor")
