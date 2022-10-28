@@ -8,8 +8,7 @@ import pandas as pd
 from project import queues, RESULTS_QUEUE_BASE_PATH
 from project.connections import mongo
 from project.models.results import ResultsQueue
-from project.queuing_theory import N
-from project.queuing_theory.utils import load_estimations_data, compare_queues
+from project.queuing_theory.utils import load_estimations_data, compare_queues, response_time_m_m_1, response_time_m_m_k
 
 warnings.filterwarnings("ignore")
 
@@ -25,16 +24,10 @@ m_m_k_fast = df_queues[df_queues["nodes"].isin([4]) & df_queues["cores"].isin([2
 
 comparisons = compare_queues(m_m_1, m_m_1_fast, m_m_k, m_m_k_fast)
 
-print("------------ COMPARISONS - ALL ESTIMATES --------------")
+print("------------ COMPARISONS - ESTIMATES --------------")
 df_comparisons = pd.DataFrame(data=comparisons)
 print(df_comparisons.to_string())
 print()
-
-# Compare estimates with 0.1 learning rate with executed tests
-m_m_1_lr_0_1 = m_m_1[df_queues["learning_rate"].isin([0.1])]
-m_m_1_fast_lr_0_1 = m_m_1_fast[df_queues["learning_rate"].isin([0.1])]
-m_m_k_lr_0_1 = m_m_k[df_queues["learning_rate"].isin([0.1])]
-m_m_k_fast_lr_0_1 = m_m_k_fast[df_queues["learning_rate"].isin([0.1])]
 
 # Read queue experiments results
 df_queues_experiments_list = []
@@ -48,17 +41,10 @@ for key, queue in queues.items():
         start_time = datetime.strptime(experiment_results.start_time[i], "%Y-%m-%d %H:%M:%S").timestamp()
         end_time = datetime.strptime(experiment_results.end_time[i], "%Y-%m-%d %H:%M:%S").timestamp()
 
-        service_rate = 1.0 / (end_time - start_time)
-
         if queue == "m_m_1" or queue == "m_m_1_fast":
-            rho_utilization = N / (1.0 + N)
-            lambda_arrival_rate = rho_utilization * service_rate
-            response_time = 1.0 / (service_rate - lambda_arrival_rate)
+            response_time = response_time_m_m_1(e_s=(end_time - start_time))
         else:
-            N_q = 1
-            rho_utilization = (N - N_q) / N
-            lambda_arrival_rate = rho_utilization * service_rate
-            response_time = (1.0 / lambda_arrival_rate) + (end_time - start_time)
+            response_time = response_time_m_m_k(k=4, e_s=(end_time - start_time))
 
         df_queues_experiments_list.append({
             "duration_s": end_time - start_time,

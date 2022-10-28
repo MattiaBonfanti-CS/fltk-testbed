@@ -1,6 +1,7 @@
 from copy import deepcopy
+from math import factorial
 
-from project.queuing_theory import N
+from project.queuing_theory import USED_PODS_M_M_1, AVAILABLE_NODES, USED_PODS_M_M_K
 
 
 def load_experiments_data(mongo):
@@ -59,6 +60,33 @@ def load_estimations_data(mongo):
     return df_list
 
 
+def response_time_m_m_k(k, e_s):
+    """
+    Calculate response time for M/M/K type queues
+
+    :param k: The available servers.
+    :param e_s: The service time for one server.
+
+    :return: The overall response time.
+    """
+    service_rate = k * (1.0 / e_s)
+    rho_utilization = USED_PODS_M_M_K / AVAILABLE_NODES
+    lambda_arrival_rate = rho_utilization * service_rate
+
+    # Calculate pi_0
+    sum_factor = 0
+    for i in range(k):
+        sum_factor += pow(k * rho_utilization, i) / factorial(i)
+    constant_factor = pow(k * rho_utilization, k) / (factorial(k) * (1.0 - rho_utilization))
+    pi_0 = 1.0 / (sum_factor + constant_factor)
+
+    P_q = constant_factor * pi_0
+    N_q = P_q * rho_utilization / (1.0 - rho_utilization)
+    e_t_q = N_q / lambda_arrival_rate
+
+    return e_t_q + (1.0 / service_rate)
+
+
 def estimate_m_m_k_fast_queue(m_m_k_data):
     """
     Estimate M/M/k-fast queue.
@@ -72,16 +100,11 @@ def estimate_m_m_k_fast_queue(m_m_k_data):
         k = q_values["nodes"]
         e_s = q_values["duration_s"]
 
-        service_rate = k * (1.0 / e_s)
-        N_q = 1
-        rho_utilization = (N - N_q) / N
-        lambda_arrival_rate = rho_utilization * service_rate
-        response_time = (1.0 / lambda_arrival_rate) + e_s
-
-        q_values["response_time"] = response_time
+        response_time = response_time_m_m_k(k, e_s)
+        q_values["response_time"] = round(response_time, 2)
 
         # M/M/k fast values
-        response_time_fast = (1.0 / (2.0 * lambda_arrival_rate)) + e_s / 2.0
+        response_time_fast = response_time_m_m_k(k, e_s / 2.0)
 
         df_m_m_k_fast_dict = deepcopy(q_values)
         df_m_m_k_fast_dict["duration_s"] = round(e_s / 2.0, 2)
@@ -91,6 +114,21 @@ def estimate_m_m_k_fast_queue(m_m_k_data):
         df_m_m_k_fast_list.append(df_m_m_k_fast_dict)
 
     return df_m_m_k_fast_list
+
+
+def response_time_m_m_1(e_s):
+    """
+    Calculate response time for M/M/1 type queues
+
+    :param e_s: The service time for one server.
+
+    :return: The overall response time.
+    """
+    service_rate = 1.0 / e_s
+    rho_utilization = USED_PODS_M_M_1 / AVAILABLE_NODES
+    lambda_arrival_rate = rho_utilization * service_rate
+
+    return 1.0 / (service_rate - lambda_arrival_rate)
 
 
 def estimate_m_m_1_m_m_1_fast_queues(m_m_k_data):
@@ -108,10 +146,7 @@ def estimate_m_m_1_m_m_1_fast_queues(m_m_k_data):
         e_s = k * q_values["duration_s"]
 
         # M/M/1
-        service_rate = 1.0 / e_s
-        rho_utilization = N / (1.0 + N)
-        lambda_arrival_rate = rho_utilization * service_rate
-        response_time = 1.0 / (service_rate - lambda_arrival_rate)
+        response_time = response_time_m_m_1(e_s)
 
         df_m_m_1_dict = deepcopy(q_values)
         df_m_m_1_dict["duration_s"] = e_s
@@ -120,7 +155,7 @@ def estimate_m_m_1_m_m_1_fast_queues(m_m_k_data):
         df_m_m_1_list.append(df_m_m_1_dict)
 
         # M/M/1-fast
-        response_time_fast = 1.0 / (2.0 * service_rate - lambda_arrival_rate)
+        response_time_fast = response_time_m_m_1(e_s / 2.0)
 
         df_m_m_1_fast_dict = deepcopy(q_values)
         df_m_m_1_fast_dict["duration_s"] = round(e_s / 2.0, 2)
