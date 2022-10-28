@@ -1,4 +1,6 @@
 import pandas as pd
+import seaborn as sns
+from pint.testsuite.test_matplotlib import plt
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 from statsmodels.formula.api import ols
@@ -39,3 +41,33 @@ mse_accuracy = mean_squared_error(y_test_accuracy, y_pred_accuracy_anova)
 r2_accuracy = r2_score(y_test_accuracy, y_pred_accuracy_anova)
 
 print(f"Accuracy predictions: MSE = {mse_accuracy}, R2: {r2_accuracy}")
+
+# Plot results
+f, (ax1, ax2, ax3, ax4) = plt.subplots(4, figsize=(20, 20))
+
+sns.lineplot(x="learning_rate", y="accuracy", data=df_linear_model, ax=ax1)
+sns.lineplot(x="epochs", y="accuracy", data=df_linear_model, ax=ax2)
+
+sns.barplot(x="dataset", y="accuracy", data=df_linear_model, ax=ax3)
+sns.barplot(x="network", y="accuracy", data=df_linear_model, ax=ax4)
+
+plt.savefig("../plots/anova_linear_sns.png")
+
+f, (ax1, ax2) = plt.subplots(2, figsize=(15, 10))
+
+ax1.scatter(X_test.learning_rate, y_test_accuracy, label="True labels")
+ax1.scatter(X_test.learning_rate, y_pred_accuracy_anova, label="Predicted values")
+
+ax1.set_xlabel("Learning rate")
+ax1.set_ylabel("Accuracy")
+
+ax2.scatter(X_test.epochs, y_test_accuracy, label="True labels")
+ax2.scatter(X_test.epochs, y_pred_accuracy_anova, label="Predicted values")
+
+ax2.set_xlabel("Number of epochs")
+ax2.set_ylabel("Accuracy")
+
+ax1.legend()
+ax2.legend()
+
+plt.savefig("../plots/anova_linear.png")

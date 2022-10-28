@@ -1,6 +1,7 @@
 !*.json
 !*.csv
 connections.cfg
+plots
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

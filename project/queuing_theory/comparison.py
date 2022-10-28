@@ -1,9 +1,11 @@
 import json
 import os
+import seaborn as sns
 import warnings
 from datetime import datetime
 
 import pandas as pd
+from pint.testsuite.test_matplotlib import plt
 
 from project import queues, RESULTS_QUEUE_BASE_PATH
 from project.connections import mongo
@@ -81,3 +83,26 @@ print("------------ COMPARISONS - EXPERIMENTS --------------")
 df_comparisons_exp = pd.DataFrame(data=comparisons_exp)
 print(df_comparisons_exp.to_string())
 print()
+
+# Plot results
+df_plot = pd.DataFrame(columns=["Queue", "Estimates", "Experiments"])
+
+for key, value in comparisons.items():
+    df_plot = df_plot.append(
+        {
+            "Queue": key,
+            "Type": "Estimates",
+            "Ratio": value["ratio"]
+        }, ignore_index=True)
+
+for key, value in comparisons_exp.items():
+    df_plot = df_plot.append(
+        {
+            "Queue": key,
+            "Type": "Experiments",
+            "Ratio": value["ratio"]
+        }, ignore_index=True)
+
+f, (ax1) = plt.subplots(1, figsize=(15, 10))
+sns.barplot(data=df_plot, x="Queue", y="Ratio", hue="Type", ax=ax1)
+plt.savefig("../plots/queue_compare.png")

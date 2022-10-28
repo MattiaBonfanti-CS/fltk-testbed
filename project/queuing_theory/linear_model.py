@@ -1,4 +1,7 @@
 import pandas as pd
+import seaborn as sns
+
+from pint.testsuite.test_matplotlib import plt
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
@@ -31,3 +34,31 @@ mse_accuracy = mean_squared_error(y_test, y_pred)
 r2_accuracy = r2_score(y_test, y_pred)
 
 print(f"Response time E[T] predictions: MSE = {mse_accuracy}, R2: {r2_accuracy}")
+
+# Plot results
+
+f, (ax1, ax2) = plt.subplots(2, figsize=(15, 10))
+
+sns.lineplot(x="nodes", y="response_time", data=df_queues, ax=ax1)
+sns.lineplot(x="cores", y="response_time", data=df_queues, ax=ax2)
+
+plt.savefig("../plots/queue_linear_sns.png")
+
+f, (ax1, ax2) = plt.subplots(2, figsize=(15, 10))
+
+ax1.scatter(X_test.nodes, y_test, label="True labels")
+ax1.scatter(X_test.cores, y_pred, label="Predicted values")
+
+ax1.set_xlabel("NUmber of nodes")
+ax1.set_ylabel("Response time")
+
+ax2.scatter(X_test.nodes, y_test, label="True labels")
+ax2.scatter(X_test.cores, y_pred, label="Predicted values")
+
+ax2.set_xlabel("Service rate factor")
+ax2.set_ylabel("Response time")
+
+ax1.legend()
+ax2.legend()
+
+plt.savefig("../plots/queue_linear.png")
