@@ -45,11 +45,21 @@ print(f"Accuracy predictions: MSE = {mse_accuracy}, R2: {r2_accuracy}")
 # Plot results
 f, (ax1, ax2, ax3, ax4) = plt.subplots(4, figsize=(20, 20))
 
-sns.lineplot(x="learning_rate", y="accuracy", data=df_linear_model, ax=ax1)
-sns.lineplot(x="epochs", y="accuracy", data=df_linear_model, ax=ax2)
+plt_1 = sns.lineplot(x="learning_rate", y="accuracy", data=df_linear_model, ax=ax1)
+plt_1.set_xlabel("Learning Rate", fontsize=22)
+plt_1.set_ylabel("Accuracy", fontsize=22)
 
-sns.barplot(x="dataset", y="accuracy", data=df_linear_model, ax=ax3)
-sns.barplot(x="network", y="accuracy", data=df_linear_model, ax=ax4)
+plt_2 = sns.lineplot(x="epochs", y="accuracy", data=df_linear_model, ax=ax2)
+plt_2.set_xlabel("Number of epochs", fontsize=22)
+plt_2.set_ylabel("Accuracy", fontsize=22)
+
+plt_3 = sns.barplot(x="dataset", y="accuracy", data=df_linear_model, ax=ax3)
+plt_3.set_xlabel("Dataset", fontsize=22)
+plt_3.set_ylabel("Accuracy", fontsize=22)
+
+plt_4 = sns.barplot(x="network", y="accuracy", data=df_linear_model, ax=ax4)
+plt_4.set_xlabel("Network Type", fontsize=22)
+plt_4.set_ylabel("Accuracy", fontsize=22)
 
 plt.savefig("../plots/anova_linear_sns.png")
 
@@ -58,14 +68,14 @@ f, (ax1, ax2) = plt.subplots(2, figsize=(15, 10))
 ax1.scatter(X_test.learning_rate, y_test_accuracy, label="True labels")
 ax1.scatter(X_test.learning_rate, y_pred_accuracy_anova, label="Predicted values")
 
-ax1.set_xlabel("Learning rate")
-ax1.set_ylabel("Accuracy")
+ax1.set_xlabel("Learning rate", fontsize=20)
+ax1.set_ylabel("Accuracy", fontsize=20)
 
 ax2.scatter(X_test.epochs, y_test_accuracy, label="True labels")
 ax2.scatter(X_test.epochs, y_pred_accuracy_anova, label="Predicted values")
 
-ax2.set_xlabel("Number of epochs")
-ax2.set_ylabel("Accuracy")
+ax2.set_xlabel("Number of epochs", fontsize=20)
+ax2.set_ylabel("Accuracy", fontsize=20)
 
 ax1.legend()
 ax2.legend()

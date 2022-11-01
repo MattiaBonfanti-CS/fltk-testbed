@@ -104,5 +104,7 @@ for key, value in comparisons_exp.items():
         }, ignore_index=True)
 
 f, (ax1) = plt.subplots(1, figsize=(15, 10))
-sns.barplot(data=df_plot, x="Queue", y="Ratio", hue="Type", ax=ax1)
+plt_1 = sns.barplot(data=df_plot, x="Queue", y="Ratio", hue="Type", ax=ax1)
+plt_1.set_xlabel("Queue Configuration", fontsize=20)
+plt_1.set_ylabel("Ratio", fontsize=20)
 plt.savefig("../plots/queue_compare.png")
