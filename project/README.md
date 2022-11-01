@@ -3,7 +3,13 @@ CS4215 Quantitative Performance Evaluation for Computing Systems - Group Project
 
 #### Adjusting Learning Rate and Epochs of Deep Neural Networks for Optimal Accuracy/Training Time Balance
 
-
+When training a Deep Neural Network, the learning rate and the number of epochs are two of the most important parameters. 
+The challenge rises when an optimal balance between accuracy of the results and training time has to be found. 
+This work aims to show the impact of the learning rate, the epochs and the system configuration on the training accuracy and response time. 
+A set of values for the learning rate, number of epochs, datasets and network type is used to design experiments that are then evaluated through a 2k and full factorial ANOVA analysis to establish the significance of the factors and their relations. 
+Building on these results, several predictive models are then built to estimate the training accuracy, response time and best performing system configuration. 
+The findings lead to an optimization strategy to find the best accuracy and response time balance, which leverages on the combination of variable epochs and arrival rates. 
+The work adds an additional perspective to the literature on the topic of Deep Neural Networks and can serve as a starting point and support material for further studies.
 
 ## Structure 
 
