@@ -141,6 +141,18 @@ python comparison.py
 python linear_model.py
 ```
 
+## Optimization
+
+Simulate M/G/1 FCFS system to compare the use of constant epochs versus a dynamic epochs over a variable arrival rate.
+
+```shell script
+cd project 
+cd simulations
+
+# run simulations
+python simulations.py
+``` 
+
 ## Contributors
 
 | Name | Email |
