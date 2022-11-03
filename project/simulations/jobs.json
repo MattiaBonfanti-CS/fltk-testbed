@@ -1,0 +1,1513 @@
+[{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacddc4"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.1,
+  "average_loss": 0.6166570454835891,
+  "accuracy": [
+    80.76,
+    80.54,
+    81.23
+  ],
+  "duration_s": 173,
+  "created": {
+    "$date": "2022-10-25T09:15:36.299Z"
+  }
+},{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacddc6"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.01,
+  "average_loss": 0.6114900517463684,
+  "accuracy": [
+    80.72,
+    81.3,
+    80.46
+  ],
+  "duration_s": 180,
+  "created": {
+    "$date": "2022-10-25T09:15:36.302Z"
+  }
+},{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacddc8"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.001,
+  "average_loss": 1.2783894443511963,
+  "accuracy": [
+    74.16,
+    74.2,
+    73.6
+  ],
+  "duration_s": 180,
+  "created": {
+    "$date": "2022-10-25T09:15:36.303Z"
+  }
+},{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacddca"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.0001,
+  "average_loss": 2.3004337120056153,
+  "accuracy": [
+    15.52,
+    14.6,
+    17.04
+  ],
+  "duration_s": 180,
+  "created": {
+    "$date": "2022-10-25T09:15:36.303Z"
+  }
+},{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacddcc"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.00001,
+  "average_loss": 2.450479063987732,
+  "accuracy": [
+    9.04,
+    8.76,
+    9.08
+  ],
+  "duration_s": 180,
+  "created": {
+    "$date": "2022-10-25T09:15:36.304Z"
+  }
+},{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacddce"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.000001,
+  "average_loss": 2.4668855094909667,
+  "accuracy": [
+    11.52,
+    13,
+    13
+  ],
+  "duration_s": 180,
+  "created": {
+    "$date": "2022-10-25T09:15:36.305Z"
+  }
+},{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacddd0"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.1,
+  "average_loss": 0.6247013562917709,
+  "accuracy": [
+    80.16,
+    80.32,
+    85
+  ],
+  "duration_s": 1140,
+  "created": {
+    "$date": "2022-10-25T09:15:36.306Z"
+  }
+},{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacddd2"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.01,
+  "average_loss": 0.2803949251770973,
+  "accuracy": [
+    85.92,
+    86.16,
+    86.32
+  ],
+  "duration_s": 1920,
+  "created": {
+    "$date": "2022-10-25T09:15:36.306Z"
+  }
+},{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacddd4"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.001,
+  "average_loss": 0.5175003588199616,
+  "accuracy": [
+    81.96,
+    81.8,
+    81.92
+  ],
+  "duration_s": 1200,
+  "created": {
+    "$date": "2022-10-25T09:15:36.307Z"
+  }
+},{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacddd6"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.0001,
+  "average_loss": 1.0315033268928528,
+  "accuracy": [
+    73.92,
+    74.12,
+    72.88
+  ],
+  "duration_s": 1320,
+  "created": {
+    "$date": "2022-10-25T09:15:36.308Z"
+  }
+},{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacddd8"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.00001,
+  "average_loss": 1.9739067792892455,
+  "accuracy": [
+    36.08,
+    35.92,
+    33.72
+  ],
+  "duration_s": 1200,
+  "created": {
+    "$date": "2022-10-25T09:15:36.308Z"
+  }
+},{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacddda"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.000001,
+  "average_loss": 2.477415499687195,
+  "accuracy": [
+    11.88,
+    11.24,
+    10.56
+  ],
+  "duration_s": 1500,
+  "created": {
+    "$date": "2022-10-25T09:15:36.309Z"
+  }
+},{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacdddc"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.1,
+  "average_loss": 7.776137262582779,
+  "accuracy": [
+    88.8,
+    88.92,
+    89.04
+  ],
+  "duration_s": 3200,
+  "created": {
+    "$date": "2022-10-25T09:15:36.310Z"
+  }
+},{
+  "_id": {
+    "$oid": "635569c61e6da2e13bacddde"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.01,
+  "average_loss": 6.946007594466209,
+  "accuracy": [
+    88.28,
+    88.52,
+    87.2
+  ],
+  "duration_s": 3026,
+  "created": {
+    "$date": "2022-10-25T09:15:36.310Z"
+  }
+},{
+  "_id": {
+    "$oid": "635572621e6da2e13bace010"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.001,
+  "average_loss": 8.888771444559097,
+  "accuracy": [
+    84.96,
+    85.8,
+    84.6
+  ],
+  "duration_s": 3000,
+  "created": {
+    "$date": "2022-10-25T09:15:36.311Z"
+  }
+},{
+  "_id": {
+    "$oid": "635645201b70717a8114a349"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.0001,
+  "average_loss": 15.380198955535889,
+  "accuracy": [
+    76.32,
+    76.64,
+    76.28
+  ],
+  "duration_s": -83387,
+  "created": {
+    "$date": "2022-10-25T09:15:36.312Z"
+  }
+},{
+  "_id": {
+    "$oid": "635645201b70717a8114a34b"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.00001,
+  "average_loss": 33.115763425827026,
+  "accuracy": [
+    58.64,
+    60.72,
+    61.12
+  ],
+  "duration_s": 89708,
+  "created": {
+    "$date": "2022-10-25T09:15:36.312Z"
+  }
+},{
+  "_id": {
+    "$oid": "635645201b70717a8114a34d"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.000001,
+  "average_loss": 47.312692165374756,
+  "accuracy": [
+    12.36,
+    12.25,
+    11.47
+  ],
+  "duration_s": 89361,
+  "created": {
+    "$date": "2022-10-25T09:15:36.313Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a879"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.1,
+  "average_loss": 21.767766416072845,
+  "accuracy": [
+    59.92,
+    59.88,
+    61.32
+  ],
+  "duration_s": 62,
+  "created": {
+    "$date": "2022-10-25T09:15:36.314Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a87b"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.01,
+  "average_loss": 40.92141234874725,
+  "accuracy": [
+    26.68,
+    26.72,
+    24.88
+  ],
+  "duration_s": 60,
+  "created": {
+    "$date": "2022-10-25T09:15:36.314Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a87d"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.001,
+  "average_loss": 46.17508006095886,
+  "accuracy": [
+    9.76,
+    10,
+    10.44
+  ],
+  "duration_s": 60,
+  "created": {
+    "$date": "2022-10-25T09:15:36.315Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a87f"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.0001,
+  "average_loss": 46.2620153427124,
+  "accuracy": [
+    10.68,
+    10.36,
+    10.08
+  ],
+  "duration_s": 120,
+  "created": {
+    "$date": "2022-10-25T09:15:36.316Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a881"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.00001,
+  "average_loss": 46.21835494041443,
+  "accuracy": [
+    10.68,
+    9.8,
+    9.96
+  ],
+  "duration_s": 60,
+  "created": {
+    "$date": "2022-10-25T09:15:36.317Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a883"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.000001,
+  "average_loss": 46.23291730880737,
+  "accuracy": [
+    11.32,
+    10.32,
+    10.12
+  ],
+  "duration_s": 57,
+  "created": {
+    "$date": "2022-10-25T09:15:36.317Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a885"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.1,
+  "average_loss": 12.671497374773026,
+  "accuracy": [
+    77.12,
+    77.16,
+    77.08
+  ],
+  "duration_s": 679,
+  "created": {
+    "$date": "2022-10-25T09:15:36.318Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a887"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.01,
+  "average_loss": 18.784362196922302,
+  "accuracy": [
+    65.96,
+    66.68,
+    64.8
+  ],
+  "duration_s": 684,
+  "created": {
+    "$date": "2022-10-25T09:15:36.319Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a889"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.001,
+  "average_loss": 44.34324598312378,
+  "accuracy": [
+    22.6,
+    23.04,
+    21.92
+  ],
+  "duration_s": 900,
+  "created": {
+    "$date": "2022-10-25T09:15:36.319Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a88b"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.0001,
+  "average_loss": 46.04570269584656,
+  "accuracy": [
+    11.88,
+    11.72,
+    11
+  ],
+  "duration_s": 569,
+  "created": {
+    "$date": "2022-10-25T09:15:36.320Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a88d"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.00001,
+  "average_loss": 46.090906858444214,
+  "accuracy": [
+    10.48,
+    10.8,
+    10.84
+  ],
+  "duration_s": 570,
+  "created": {
+    "$date": "2022-10-25T09:15:36.321Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a88f"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.000001,
+  "average_loss": 46.104881286621094,
+  "accuracy": [
+    10.32,
+    9.64,
+    9.2
+  ],
+  "duration_s": 898,
+  "created": {
+    "$date": "2022-10-25T09:15:36.321Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a891"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.1,
+  "average_loss": 11.424397706985474,
+  "accuracy": [
+    81.2,
+    81.64,
+    79.12
+  ],
+  "duration_s": 1333,
+  "created": {
+    "$date": "2022-10-25T09:15:36.322Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a893"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.01,
+  "average_loss": 30.60291862487793,
+  "accuracy": [
+    41,
+    41.88,
+    41.48
+  ],
+  "duration_s": 1330,
+  "created": {
+    "$date": "2022-10-25T09:15:36.323Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a895"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.001,
+  "average_loss": 14.833193719387054,
+  "accuracy": [
+    72.48,
+    73.32,
+    71.8
+  ],
+  "duration_s": 3448,
+  "created": {
+    "$date": "2022-10-25T09:15:36.323Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a897"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.0001,
+  "average_loss": 46.672324657440186,
+  "accuracy": [
+    9,
+    9,
+    9.52
+  ],
+  "duration_s": 2088,
+  "created": {
+    "$date": "2022-10-25T09:15:36.324Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a899"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.00001,
+  "average_loss": 46.30055499076843,
+  "accuracy": [
+    9.44,
+    9.48,
+    7.8
+  ],
+  "duration_s": 3448,
+  "created": {
+    "$date": "2022-10-25T09:15:36.325Z"
+  }
+},{
+  "_id": {
+    "$oid": "63567a2e1b70717a8114a89b"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "mnist",
+  "network": "MNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.000001,
+  "average_loss": 45.53207802772522,
+  "accuracy": [
+    13.24,
+    14.28,
+    12.96
+  ],
+  "duration_s": 779,
+  "created": {
+    "$date": "2022-10-25T09:15:36.326Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab85"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.1,
+  "average_loss": 10.90381172299385,
+  "accuracy": [
+    80,
+    80,
+    79.08
+  ],
+  "duration_s": 116,
+  "created": {
+    "$date": "2022-10-25T09:15:36.326Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab87"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.01,
+  "average_loss": 11.037431240081787,
+  "accuracy": [
+    81.88,
+    80.88,
+    80.24
+  ],
+  "duration_s": 94,
+  "created": {
+    "$date": "2022-10-25T09:15:36.327Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab89"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.001,
+  "average_loss": 20.96612399816513,
+  "accuracy": [
+    72.96,
+    74.24,
+    73.4
+  ],
+  "duration_s": 100,
+  "created": {
+    "$date": "2022-10-25T09:15:36.328Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab8b"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.0001,
+  "average_loss": 37.324230670928955,
+  "accuracy": [
+    42.16,
+    40.24,
+    42.6
+  ],
+  "duration_s": 110,
+  "created": {
+    "$date": "2022-10-25T09:15:36.328Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab8d"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.00001,
+  "average_loss": 45.74505853652954,
+  "accuracy": [
+    11.48,
+    11.68,
+    11.52
+  ],
+  "duration_s": 209,
+  "created": {
+    "$date": "2022-10-25T09:15:36.329Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab8f"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.000001,
+  "average_loss": 47.03012418746948,
+  "accuracy": [
+    13.72,
+    11.72,
+    12.2
+  ],
+  "duration_s": 118,
+  "created": {
+    "$date": "2022-10-25T09:15:36.330Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab91"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.1,
+  "average_loss": 7.24649652838707,
+  "accuracy": [
+    87.16,
+    88.6,
+    86.68
+  ],
+  "duration_s": 1304,
+  "created": {
+    "$date": "2022-10-25T09:15:36.330Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab93"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.01,
+  "average_loss": 7.224788457155228,
+  "accuracy": [
+    86.36,
+    87.96,
+    86.76
+  ],
+  "duration_s": 1251,
+  "created": {
+    "$date": "2022-10-25T09:15:36.331Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab95"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.001,
+  "average_loss": 10.712836980819702,
+  "accuracy": [
+    82.64,
+    82.72,
+    81.84
+  ],
+  "duration_s": 2284,
+  "created": {
+    "$date": "2022-10-25T09:15:36.332Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab97"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.0001,
+  "average_loss": 20.691694378852844,
+  "accuracy": [
+    72.36,
+    72.48,
+    71.52
+  ],
+  "duration_s": 1297,
+  "created": {
+    "$date": "2022-10-25T09:15:36.332Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab99"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.00001,
+  "average_loss": 40.662105441093445,
+  "accuracy": [
+    32.84,
+    33.2,
+    32.24
+  ],
+  "duration_s": 1316,
+  "created": {
+    "$date": "2022-10-25T09:15:36.333Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab9b"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.000001,
+  "average_loss": 48.56488656997681,
+  "accuracy": [
+    10.88,
+    10.04,
+    10.08
+  ],
+  "duration_s": 1866,
+  "created": {
+    "$date": "2022-10-25T09:15:36.334Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab9d"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.1,
+  "average_loss": 7.766652941703796,
+  "accuracy": [
+    87.28,
+    88.16,
+    88.24
+  ],
+  "duration_s": 2644,
+  "created": {
+    "$date": "2022-10-25T09:15:36.334Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114ab9f"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.01,
+  "average_loss": 6.478570207953453,
+  "accuracy": [
+    87.88,
+    88.36,
+    87.56
+  ],
+  "duration_s": 2831,
+  "created": {
+    "$date": "2022-10-25T09:15:36.335Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114aba1"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.001,
+  "average_loss": 8.694304645061493,
+  "accuracy": [
+    84.76,
+    85.44,
+    84.36
+  ],
+  "duration_s": 1925,
+  "created": {
+    "$date": "2022-10-25T09:15:36.336Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114aba3"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.0001,
+  "average_loss": 15.696801960468292,
+  "accuracy": [
+    75.24,
+    76.52,
+    75.72
+  ],
+  "duration_s": 2640,
+  "created": {
+    "$date": "2022-10-25T09:15:36.336Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114aba5"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.00001,
+  "average_loss": 35.24874007701874,
+  "accuracy": [
+    49.36,
+    47.2,
+    47.48
+  ],
+  "duration_s": 2683,
+  "created": {
+    "$date": "2022-10-25T09:15:36.337Z"
+  }
+},{
+  "_id": {
+    "$oid": "6356b66a1b70717a8114aba7"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "FashionMNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.000001,
+  "average_loss": 44.26101493835449,
+  "accuracy": [
+    17.04,
+    15.64,
+    16.16
+  ],
+  "duration_s": 4129,
+  "created": {
+    "$date": "2022-10-25T09:15:36.338Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f185"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.1,
+  "average_loss": 28.268248200416565,
+  "accuracy": [
+    43.32,
+    45.12,
+    45.64
+  ],
+  "duration_s": 57,
+  "created": {
+    "$date": "2022-10-25T09:15:36.338Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f187"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.01,
+  "average_loss": 45.53592395782471,
+  "accuracy": [
+    14.96,
+    14.48,
+    16.52
+  ],
+  "duration_s": 57,
+  "created": {
+    "$date": "2022-10-25T09:15:36.339Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f189"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.001,
+  "average_loss": 46.081971883773804,
+  "accuracy": [
+    11,
+    9.88,
+    9.68
+  ],
+  "duration_s": 58,
+  "created": {
+    "$date": "2022-10-25T09:15:36.340Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f18b"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.0001,
+  "average_loss": 46.235984802246094,
+  "accuracy": [
+    10.04,
+    11.48,
+    11.2
+  ],
+  "duration_s": 57,
+  "created": {
+    "$date": "2022-10-25T09:15:36.340Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f18d"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.00001,
+  "average_loss": 46.24204063415527,
+  "accuracy": [
+    9.12,
+    9.64,
+    9.8
+  ],
+  "duration_s": 57,
+  "created": {
+    "$date": "2022-10-25T09:15:36.341Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f18f"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 1,
+  "learning_rate": 0.000001,
+  "average_loss": 46.16108417510986,
+  "accuracy": [
+    9.6,
+    10.16,
+    9.4
+  ],
+  "duration_s": 66,
+  "created": {
+    "$date": "2022-10-25T09:15:36.341Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f191"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.1,
+  "average_loss": 13.860224723815918,
+  "accuracy": [
+    74.16,
+    75.6,
+    72.6
+  ],
+  "duration_s": 833,
+  "created": {
+    "$date": "2022-10-25T09:15:36.342Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f193"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.01,
+  "average_loss": 23.46672487258911,
+  "accuracy": [
+    55.04,
+    56.28,
+    55.4
+  ],
+  "duration_s": 822,
+  "created": {
+    "$date": "2022-10-25T09:15:36.342Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f195"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.001,
+  "average_loss": 45.79257917404175,
+  "accuracy": [
+    13,
+    15,
+    14.2
+  ],
+  "duration_s": 908,
+  "created": {
+    "$date": "2022-10-25T09:15:36.343Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f197"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.0001,
+  "average_loss": 46.035799980163574,
+  "accuracy": [
+    11,
+    11.56,
+    11.56
+  ],
+  "duration_s": 511,
+  "created": {
+    "$date": "2022-10-25T09:15:36.344Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f199"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.00001,
+  "average_loss": 46.12889361381531,
+  "accuracy": [
+    10.32,
+    9.28,
+    10.68
+  ],
+  "duration_s": 498,
+  "created": {
+    "$date": "2022-10-25T09:15:36.344Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f19b"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 10,
+  "learning_rate": 0.000001,
+  "average_loss": 46.03194046020508,
+  "accuracy": [
+    11.64,
+    10.8,
+    11.52
+  ],
+  "duration_s": 799,
+  "created": {
+    "$date": "2022-10-25T09:15:36.345Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f19d"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.1,
+  "average_loss": 11.591860145330429,
+  "accuracy": [
+    78.64,
+    78.84,
+    77.04
+  ],
+  "duration_s": 1284,
+  "created": {
+    "$date": "2022-10-25T09:15:36.345Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f19f"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.01,
+  "average_loss": 18.261183083057404,
+  "accuracy": [
+    67,
+    66.4,
+    65.96
+  ],
+  "duration_s": 1288,
+  "created": {
+    "$date": "2022-10-25T09:15:36.346Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f1a1"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.001,
+  "average_loss": 43.37973356246948,
+  "accuracy": [
+    24.52,
+    25.32,
+    22.6
+  ],
+  "duration_s": 1285,
+  "created": {
+    "$date": "2022-10-25T09:15:36.347Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f1a3"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.0001,
+  "average_loss": 46.17140984535217,
+  "accuracy": [
+    9.52,
+    10.72,
+    10.96
+  ],
+  "duration_s": 1288,
+  "created": {
+    "$date": "2022-10-25T09:15:36.347Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f1a5"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.00001,
+  "average_loss": 46.207287549972534,
+  "accuracy": [
+    9.48,
+    10.4,
+    9.8
+  ],
+  "duration_s": 1303,
+  "created": {
+    "$date": "2022-10-25T09:15:36.348Z"
+  }
+},{
+  "_id": {
+    "$oid": "6357a938524c098a9690f1a7"
+  },
+  "nodes": 4,
+  "cores": "500m",
+  "memory": "1Gi",
+  "dataset": "fashion-mnist",
+  "network": "MNISTCNN",
+  "epochs": 25,
+  "learning_rate": 0.000001,
+  "average_loss": 46.12950611114502,
+  "accuracy": [
+    9,
+    10.32,
+    10.4
+  ],
+  "duration_s": 1298,
+  "created": {
+    "$date": "2022-10-25T09:15:36.348Z"
+  }
+}]
